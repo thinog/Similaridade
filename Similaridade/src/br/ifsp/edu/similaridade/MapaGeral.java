@@ -5,9 +5,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class MapaGeral {
+	private Map<String, Integer> mapa = new HashMap<>();
+	
 	public Map<String, Integer> mapear(Map<String, Integer> m1, Map<String, Integer> m2, Map<String, Integer> m3){
-		Map<String, Integer> mapa = new HashMap<>();
-		
 		mapa = m1;
 		
 		for(Entry<String, Integer> entry : m2.entrySet()){
@@ -34,6 +34,13 @@ public class MapaGeral {
 			System.out.println(entry.getKey()); 
 			System.out.println("--> freq=" + entry.getValue() + "\n");
 		}		
+	}
+	
+	public void Idf(int arquivos){
+		//log(totalArquivos / arquivos com termo)
+		// termo por arquivo * log...
+		
+		
 	}
 	
 }
