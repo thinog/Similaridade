@@ -21,7 +21,7 @@ public class ArquivoDoc extends Arquivo {
 	private Map<String, Integer> mapa = new HashMap<>();
 
  	@Override
- 	public void lerArquivo() {
+ 	public Map<String, Integer> lerArquivo() {
  		try{
 	 		if(arquivo.endsWith("docx")){
  				XWPFDocument fileDocx = new XWPFDocument(new FileInputStream(arquivo));  
@@ -44,11 +44,13 @@ public class ArquivoDoc extends Arquivo {
 	 		    String wordText = arqWord.getText();  
 	 		    
 	 		    mapa = palavra.mapearPalavras(wordText, mapa);
+
+	            System.out.println(arquivo);
 		 	    
-				for (Entry<String, Integer> entry : mapa.entrySet()) {
+				/*for (Entry<String, Integer> entry : mapa.entrySet()) {
 					System.out.println(entry.getKey()); 
 					System.out.println("--> freq=" + entry.getValue() + "\n");
-				}
+				}*/
 	 		    
 	 		   	//System.out.println(wordText);
 	 		   
@@ -57,5 +59,6 @@ public class ArquivoDoc extends Arquivo {
 	 	}catch (IOException e) { 
 			System.err.println("Erro na abertura do arquivo: " + e.getMessage()); 
 		}
+		return mapa;
  	}
 }

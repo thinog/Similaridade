@@ -1,5 +1,7 @@
 package br.ifsp.edu.similaridade;
 
+import java.util.Map;
+
 public abstract class Arquivo {
 	String arquivo;
 	
@@ -7,6 +9,6 @@ public abstract class Arquivo {
 		this.arquivo = arquivo;
 	}
 	
-	public abstract void lerArquivo();
+	public abstract Map<String, Integer> lerArquivo();
 
 }

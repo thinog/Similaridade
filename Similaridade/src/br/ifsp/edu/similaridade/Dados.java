@@ -15,7 +15,6 @@ public class Dados {
 	public Pasta lerEntrada() {
 		Scanner ler = new Scanner(System.in);
 			
-		String continuar = null;
 		String caminho = null;
 		String ext = null;
 		String[] extensoes = null;
@@ -26,16 +25,9 @@ public class Dados {
 		ext = ler.nextLine();
 		ext = ext.replaceAll(" |\\.", "").toLowerCase();
 		extensoes = ext.split(",");
-
-		if(numPasta < 2){
-			numPasta++;			
-			System.out.println("Deseja adicionar outro diretório? (Y/n) ");
-			continuar = ler.nextLine();
-	
-			if(continuar.toLowerCase().equals("n")) {
-				proxPasta = "n";
-			}
-		}else{
+		numPasta++;	
+		
+		if(numPasta == 3){
 			ler.close();
 		}
 		

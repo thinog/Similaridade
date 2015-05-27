@@ -22,9 +22,9 @@ public class Palavra {
 			freq = mapa.get(p);
 				
 			if (freq != null) { 
-				mapa.put(palavras.get(i), mapa.get(palavras.get(i))+1);
+				mapa.put(palavras.get(i).toLowerCase(), mapa.get(palavras.get(i))+1);
 			} else { 
-				mapa.put(palavras.get(i),1); 
+				mapa.put(palavras.get(i).toLowerCase(),1); 
 			} 			
 			
 			//System.out.println("tamanho: " + mapa.size());

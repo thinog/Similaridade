@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class ArquivoTxt extends Arquivo {
 	
@@ -18,7 +17,7 @@ public class ArquivoTxt extends Arquivo {
 	private Map<String, Integer> mapa = new HashMap<>();
 	
 	@Override
-	public void lerArquivo(){
+	public Map<String, Integer> lerArquivo(){
 		try { 
 			BufferedReader lerArq = new BufferedReader(new InputStreamReader(new FileInputStream(arquivo), "UTF-8")); 
 			String linha = lerArq.readLine();
@@ -31,14 +30,10 @@ public class ArquivoTxt extends Arquivo {
 			
 			lerArq.close();
 			
-			for (Entry<String, Integer> entry : mapa.entrySet()) {
-				System.out.println(entry.getKey()); 
-				System.out.println("--> freq=" + entry.getValue() + "\n");
-			}			
-			
 		}catch (IOException e) { 
 			System.err.println("Erro na abertura do arquivo: " + e.getMessage()); 
 		}
+		return mapa;
 	}
 
 }

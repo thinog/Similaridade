@@ -18,7 +18,7 @@ public class ArquivoPdf extends Arquivo {
 	private Map<String, Integer> mapa = new HashMap<>();
 	
 	@Override
-	public void lerArquivo(){
+	public Map<String, Integer> lerArquivo(){
 		try{
 			PdfReader filePdf = new PdfReader(arquivo);
             int numPaginas = filePdf.getNumberOfPages() + 1;
@@ -29,15 +29,16 @@ public class ArquivoPdf extends Arquivo {
                 mapa = palavra.mapearPalavras(pagina, mapa);
             }
             
-			for (Entry<String, Integer> entry : mapa.entrySet()) {
+			/*for (Entry<String, Integer> entry : mapa.entrySet()) {
 				System.out.println(entry.getKey()); 
 				System.out.println("--> freq=" + entry.getValue() + "\n");
-			}
+			}*/
             
 
 
 		}catch (IOException e) { 
 			System.err.println("Erro na abertura do arquivo: " + e.getMessage()); 
 		}
+		return mapa;
 	}
 }
